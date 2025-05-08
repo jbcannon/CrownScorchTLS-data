@@ -1,0 +1,659 @@
+id,dbh,observed,predicted,model,response
+A-04-6978,18.4,0.45,0.8444144464727126,Random forests,Intensity
+A-04-6982,4.3,1,0.8773030370614406,Random forests,Intensity
+A-04-6988,4.3,1,0.7649380692865451,Random forests,Intensity
+A-04-6993,10.8,1,0.81916947760318,Random forests,Intensity
+A-04-7007,41.1,0.5,0.8029205232484418,Random forests,Intensity
+A-04-7018,44.2,0.1,0.16909551953790458,Random forests,Intensity
+A-04-7019,43.6,0.9,0.6297764269866463,Random forests,Intensity
+A-04-7022,4.1,1,0.8067809774565751,Random forests,Intensity
+A-05-7217,46.3,0.8,0.6597017622710252,Random forests,Intensity
+A-05-7222,12.5,0.95,0.8058532402768714,Random forests,Intensity
+A-05-7223,19.3,0.95,0.8948460855792502,Random forests,Intensity
+A-05-7224,20,0.75,0.4389998182471088,Random forests,Intensity
+A-05-7228,17.5,0.2,0.18367522345485288,Random forests,Intensity
+A-05-7230,11.8,0.8,0.5102567647396828,Random forests,Intensity
+A-05-7232,16.2,0.25,0.14199384178851782,Random forests,Intensity
+A-05-7233,11.8,0.05,0.12006547153051494,Random forests,Intensity
+A-05-7240,26.1,0.05,0.10569895813287655,Random forests,Intensity
+A-05-7257,21.2,0,0.11260899720436812,Random forests,Intensity
+A-05-7265,12.7,0.15,0.319295783259562,Random forests,Intensity
+A-05-7275,16.8,0.03,0.22296462378279244,Random forests,Intensity
+A-05-7285,13.9,0.05,0.24818812084267763,Random forests,Intensity
+A-05-7291,10.6,0.5,0.26147781180735497,Random forests,Intensity
+A-05-7293,13.5,0.9,0.609136623511963,Random forests,Intensity
+A-05-7300,12.3,0.85,0.449712702708663,Random forests,Intensity
+A-05-7461,10.2,0.75,0.09152189115105319,Random forests,Intensity
+A-05-7463,15.2,0.05,0.04466067794445733,Random forests,Intensity
+A-05-7464,10.2,0.01,0.35930909569384617,Random forests,Intensity
+A-05-7470,16.4,0.5,0.6951418472624775,Random forests,Intensity
+A-05-7478,11.4,1,0.7056221551508479,Random forests,Intensity
+A-06-7565,14.5,0.9,0.8404561367655056,Random forests,Intensity
+A-06-7612,37,0.03,0.4314741714422779,Random forests,Intensity
+A-06-7662,22,0.1,0.6938695180488396,Random forests,Intensity
+B-04-4263,35.6,0.25,0.5727824713850628,Random forests,Intensity
+B-04-4264,45.2,0.9,0.8965897655365873,Random forests,Intensity
+B-04-4268,50,0.95,0.8661651185771034,Random forests,Intensity
+B-04-4276,33.5,0.9,0.6105581368160741,Random forests,Intensity
+B-04-4284,28.9,0.6,0.7734845072756275,Random forests,Intensity
+B-04-4286,49.1,0.5,0.6327017554154757,Random forests,Intensity
+B-04-4288,34.7,0.05,0.4350374319783209,Random forests,Intensity
+B-05-4293,47.7,0.05,0.19795966795253178,Random forests,Intensity
+B-05-4294,50.6,0.45,0.44312323232676565,Random forests,Intensity
+B-05-4312,49.2,0.35,0.5847679279709358,Random forests,Intensity
+B-05-4314,43.2,0.55,0.5631825871345754,Random forests,Intensity
+B-05-4315,51.6,0.85,0.9256030567514906,Random forests,Intensity
+B-05-4316,49.9,0.7,0.5020252438048806,Random forests,Intensity
+B-06-4959,44.9,0.05,0.22390043113920022,Random forests,Intensity
+B-06-4960,41.7,0.3,0.43084443467596695,Random forests,Intensity
+B-06-6061,49.2,0.3,0.3186563667159257,Random forests,Intensity
+B-06-6100,2.8,1,0.6373560533306375,Random forests,Intensity
+B-07-4987,20.2,0.85,0.7719890864992361,Random forests,Intensity
+B-07-4994,34,0.1,0.22843290103580235,Random forests,Intensity
+C-04-11013,6.6,0.9,0.7824074427289387,Random forests,Intensity
+C-04-11022,50.2,0.1,0.37639730754614265,Random forests,Intensity
+C-04-11029,42.8,0.95,0.8510076059964952,Random forests,Intensity
+C-04-11068,12.6,0.5,0.5422690403506419,Random forests,Intensity
+C-04-11076,11.3,0.5,0.43658146604559445,Random forests,Intensity
+C-05-13091,5.8,0.2,0.10083879609497964,Random forests,Intensity
+C-05-13096,2.4,0.9,0.8180510506109917,Random forests,Intensity
+C-05-13101,2.1,0.6,0.8451914831906917,Random forests,Intensity
+C-05-13136,52.6,0.1,0.21881550200980399,Random forests,Intensity
+C-06-9921,34.1,0.7,0.32578529119513794,Random forests,Intensity
+C-06-9926,10.7,0.7,0.7931088039831786,Random forests,Intensity
+C-06-9939,50.2,0.55,0.4543084095572938,Random forests,Intensity
+C-07-9941,50.3,0.35,0.3874617839538177,Random forests,Intensity
+C-07-9945,46.3,0.5,0.40404357876855546,Random forests,Intensity
+C-07-9960,20,0.01,0.019783699406024702,Random forests,Intensity
+C-07-9968,38.2,0.8,0.8115599724761533,Random forests,Intensity
+C-10-12806,5.1,0.8,0.8337129744225382,Random forests,Intensity
+C-10-12808,4.1,0.8,0.8167304555686987,Random forests,Intensity
+C-10-12826,3.8,0.4,0.37656968066734575,Random forests,Intensity
+C-10-12848,12,0,0.19562849162401652,Random forests,Intensity
+C-10-12851,3.5,0.55,0.8770381391837494,Random forests,Intensity
+C-10-12858,4.6,0.5,0.18894863090408787,Random forests,Intensity
+C-10-12862,4,0.8,0.7961741300523999,Random forests,Intensity
+C-10-12886,4,0.9,0.9045888772881456,Random forests,Intensity
+C-11-12194,4.2,0.6,0.5133878058881071,Random forests,Intensity
+C-11-12506,3.5,0.05,0.23945828395723812,Random forests,Intensity
+C-11-12507,5.2,0.05,0.4130602004794813,Random forests,Intensity
+C-11-12567,10.8,0.15,0.21166680797338094,Random forests,Intensity
+C-11-12568,12.4,0.15,0.1818201900462485,Random forests,Intensity
+C-11-12655,3.7,0.65,0.6701995725674569,Random forests,Intensity
+C-11-12658,5.3,0.7,0.5486320320976484,Random forests,Intensity
+C-11-12664,2.1,0.6,0.5110306400525625,Random forests,Intensity
+D-03-10846,49.2,0.45,0.5039404961894489,Random forests,Intensity
+D-03-10867,44.7,0.95,0.8304642294759439,Random forests,Intensity
+D-04-2906,49,0.3,0.44472592814486056,Random forests,Intensity
+D-04-2907,22.1,0.6,0.8194079239669965,Random forests,Intensity
+D-04-2908,24.2,0.15,0.5748064268303167,Random forests,Intensity
+D-04-2909,32.8,0.6,0.5486514123826985,Random forests,Intensity
+D-04-2910,26.5,0.3,0.19871861170027322,Random forests,Intensity
+D-04-2912,33.6,0.6,0.3956354646067076,Random forests,Intensity
+D-04-2914,13.6,0.85,0.9417091666702176,Random forests,Intensity
+D-04-2922,37.2,0.7,0.22215013868456662,Random forests,Intensity
+D-04-2926,39.7,0.15,0.18735400396911644,Random forests,Intensity
+D-04-2930,13,0.75,0.7122188666292961,Random forests,Intensity
+D-05-2937,10.8,0.4,0.7121878114130136,Random forests,Intensity
+D-05-2941,16,0.3,0.5223338027703707,Random forests,Intensity
+D-05-2942,24.5,0.35,0.2788462323315558,Random forests,Intensity
+D-05-2947,19.8,0.55,0.4762126182500003,Random forests,Intensity
+D-05-2949,34.3,0.8,0.5892531929275275,Random forests,Intensity
+D-05-2950,21.2,0.2,0.22970077861850688,Random forests,Intensity
+D-05-2951,37.5,0.25,0.446118076941226,Random forests,Intensity
+D-05-2952,33.1,0.85,0.7493236173194673,Random forests,Intensity
+D-06-8664,35,0.45,0.5498056199623595,Random forests,Intensity
+D-06-8665,31.9,0.55,0.4547574721947071,Random forests,Intensity
+D-06-8681,21.6,0.03,0.15066427989693437,Random forests,Intensity
+D-06-8685,2.2,0.95,0.8269895004654677,Random forests,Intensity
+D-11-9404,36.1,0.15,0.38585904929036347,Random forests,Intensity
+D-11-9423,58.1,0.3,0.42558542618059486,Random forests,Intensity
+D-12-9368,43,0.15,0.08580425174634121,Random forests,Intensity
+D-12-9374,27.8,0.35,0.23108804736898855,Random forests,Intensity
+D-12-9388,20.2,0.03,0.08233680620108291,Random forests,Intensity
+E-04-6267,10.4,1,0.8826273672138915,Random forests,Intensity
+E-04-6270,33.6,0.6,0.31772144764367205,Random forests,Intensity
+E-04-6273,13.2,0.55,0.558609761046337,Random forests,Intensity
+E-04-6274,15.6,0.4,0.1768795449566919,Random forests,Intensity
+E-04-6275,11.3,0.65,0.45464666657495045,Random forests,Intensity
+E-04-6280,10.6,0.6,0.6118243455012768,Random forests,Intensity
+E-04-6283,11.2,0.2,0.2052224332028667,Random forests,Intensity
+E-04-6293,16.1,0.65,0.5010378210727853,Random forests,Intensity
+E-04-6296,11.3,0.7,0.6444548049677675,Random forests,Intensity
+E-04-6300,14.9,0.45,0.4946061278194354,Random forests,Intensity
+E-04-6314,13.7,0.8,0.7401100318727545,Random forests,Intensity
+E-04-6316,12.3,0.99,0.9336421131783893,Random forests,Intensity
+E-05-4532,48.8,0.15,0.15540677417902093,Random forests,Intensity
+E-05-4537,4.9,0.9,0.6534248947285833,Random forests,Intensity
+E-05-4540,9.9,0.35,0.5377289634725448,Random forests,Intensity
+E-05-4542,5.3,0.99,0.7739035768687956,Random forests,Intensity
+E-05-4549,39.1,0.3,0.1456491909592968,Random forests,Intensity
+E-05-4553,14.7,0.65,0.5278129380333463,Random forests,Intensity
+E-05-4563,28.3,0.45,0.39879534659712257,Random forests,Intensity
+E-05-4565,13.9,0.8,0.7187210240901301,Random forests,Intensity
+E-05-4572,17.3,0.55,0.47636384552858035,Random forests,Intensity
+E-06-6374,8.1,0.15,0.14985446480419157,Random forests,Intensity
+E-06-6384,21.4,0.5,0.31007511634538054,Random forests,Intensity
+E-08-9267,40.4,0.25,0.13785843033004086,Random forests,Intensity
+E-08-9269,55.5,0.5,0.37000731469095655,Random forests,Intensity
+E-08-9272,5.5,0.95,0.7257744655395066,Random forests,Intensity
+F-04-3274,26.4,0.25,0.46708885689199586,Random forests,Intensity
+F-04-3275,37.9,0.8,0.894023736594084,Random forests,Intensity
+F-04-3276,20.1,0.95,0.8630750312260551,Random forests,Intensity
+F-04-3277,41.4,0.9,0.6274624855591039,Random forests,Intensity
+F-04-3279,25.4,0.95,0.8205499506926714,Random forests,Intensity
+F-04-3288,28.9,0.85,0.8686842738598093,Random forests,Intensity
+F-04-3289,11.8,0.95,0.8609827506867563,Random forests,Intensity
+F-04-3316,5.1,0.4,0.24063614874565442,Random forests,Intensity
+F-05-3231,28.5,0.3,0.45772063601601237,Random forests,Intensity
+F-05-3233,50.2,0.95,0.8062250165029781,Random forests,Intensity
+F-05-3236,11.9,0.6,0.7464733288103804,Random forests,Intensity
+F-05-3238,8.1,0.75,0.7491116039498986,Random forests,Intensity
+F-05-3240,16,0.9,0.653338296473384,Random forests,Intensity
+F-05-3250,13.9,0.99,0.9380473583571394,Random forests,Intensity
+F-05-3254,10.2,0.9,0.943534309765663,Random forests,Intensity
+F-05-3255,39.4,0.5,0.22614074845687704,Random forests,Intensity
+F-06-3345,36.2,0.01,0.19564947606506594,Random forests,Intensity
+F-06-3350,18.2,0.3,0.5389297711202649,Random forests,Intensity
+F-06-3364,2.5,0.95,0.7001279691148667,Random forests,Intensity
+F-06-3365,17.4,0.95,0.9345799924085381,Random forests,Intensity
+F-06-3377,12.7,0.4,0.30539328363686385,Random forests,Intensity
+F-06-3392,2.5,0.65,0.5709198620357413,Random forests,Intensity
+F-11-12271,33.2,0.4,0.4019298288443496,Random forests,Intensity
+F-11-12295,10.4,0.35,0.72708376281491,Random forests,Intensity
+F-11-13701,11.5,0.8,0.7435836361508036,Random forests,Intensity
+F-11-13716,36.7,0.05,0.37259075984614437,Random forests,Intensity
+F-12-4064,18.7,0.4,0.41045597574811216,Random forests,Intensity
+F-12-4065,28.9,0.45,0.4292585396395495,Random forests,Intensity
+F-12-4070,21.2,0.7,0.5547749654167908,Random forests,Intensity
+G-04-5528,44.4,0.35,0.3114323958322184,Random forests,Intensity
+G-04-5535,4.8,0.35,0.5595070647011393,Random forests,Intensity
+G-05-1360,4.2,0.65,0.4048159323907663,Random forests,Intensity
+G-05-1375,3.3,0.99,0.7950005312814987,Random forests,Intensity
+G-05-1431,5.2,0.45,0.6146664312894169,Random forests,Intensity
+G-05-1433,8.5,0.25,0.11917080534399516,Random forests,Intensity
+G-05-1439,13.3,0.25,0.5735794460542728,Random forests,Intensity
+G-06-1121,4.9,0.5,0.3805939899433919,Random forests,Intensity
+G-09-2093,15.9,0.25,0.2783883079285449,Random forests,Intensity
+G-09-2094,22.8,0.4,0.5484147248941278,Random forests,Intensity
+G-09-2099,45.6,0.55,0.5077260781825429,Random forests,Intensity
+G-09-2100,49.9,0.7,0.6127388295517011,Random forests,Intensity
+G-09-2113,34.5,0.8,0.7080533607450871,Random forests,Intensity
+G-09-2125,41.9,0.6,0.6421202682022853,Random forests,Intensity
+G-10-2019,46,0.65,0.7873367575211323,Random forests,Intensity
+G-10-2020,37.5,0.15,0.19269014320214767,Random forests,Intensity
+G-10-2021,53,0.2,0.21000002897551412,Random forests,Intensity
+G-10-2022,32.5,0.2,0.14569230857212329,Random forests,Intensity
+H-04-5452,37.4,0,0.07398663573035225,Random forests,Intensity
+H-04-5461,6.6,1,0.8521391030742462,Random forests,Intensity
+H-04-5483,30.3,0,0.08927811499361094,Random forests,Intensity
+H-04-5494,7.5,0.6,0.3473562725592437,Random forests,Intensity
+H-05-1035,11.7,0,0.12262286134998979,Random forests,Intensity
+H-05-1036,8.7,0.05,0.06989813324821575,Random forests,Intensity
+H-06-688,47,0.2,0.18356987810364278,Random forests,Intensity
+H-09-1980,46.2,0.65,0.7568159870986189,Random forests,Intensity
+H-09-1987,44.7,0.6,0.590346752062055,Random forests,Intensity
+H-09-1988,50.5,0.7,0.8240786405762418,Random forests,Intensity
+H-09-1989,43.6,0.95,0.7399320622757334,Random forests,Intensity
+H-09-1991,35.8,0.7,0.5520496231322469,Random forests,Intensity
+H-09-1995,58.7,0.85,0.8717574586002756,Random forests,Intensity
+H-09-1996,34.2,0.95,0.8447802771704354,Random forests,Intensity
+H-10-2140,27.9,0.3,0.21770434475194766,Random forests,Intensity
+H-10-2156,44.8,0.75,0.8576717878143568,Random forests,Intensity
+H-10-2161,20.5,0.75,0.590442983764857,Random forests,Intensity
+H-10-2172,50.6,0.35,0.5513597606449525,Random forests,Intensity
+H-10-2174,7.2,0.65,0.8750237977575734,Random forests,Intensity
+H-10-2181,5.8,0.85,0.2919468288135191,Random forests,Intensity
+H-10-2301,3.8,0.3,0.6065060877220668,Random forests,Intensity
+H-12-8427,11.6,0.95,0.9512131074324535,Random forests,Intensity
+H-12-8431,30.2,0.4,0.4231197286641999,Random forests,Intensity
+H-12-8456,21.5,0.2,0.2068304513431236,Random forests,Intensity
+H-12-8462,23.6,0.25,0.004721396652236198,Random forests,Intensity
+H-12-8471,22.7,0.95,0.9523833162313196,Random forests,Intensity
+H-12-8474,13.7,1,0.8631647241588252,Random forests,Intensity
+H-12-8475,23.8,0.75,0.5152476830312358,Random forests,Intensity
+H-12-8476,31.2,0.95,0.8592846088576698,Random forests,Intensity
+H-12-8477,17.4,1,0.8869133081047442,Random forests,Intensity
+H-12-8478,26.5,0.6,0.6176146617008463,Random forests,Intensity
+H-12-8479,35,0.25,0.4230936547616691,Random forests,Intensity
+H-12-8498,18.7,0,0.10368403103241769,Random forests,Intensity
+K-04-4340,39.7,0.15,0.09974895219093005,Random forests,Intensity
+K-04-4355,20.2,0.15,0.10922370449125651,Random forests,Intensity
+K-05-194,47.7,0.2,0.20344816128606724,Random forests,Intensity
+K-05-232,3.3,0.25,0.4167855613680742,Random forests,Intensity
+K-05-265,2.2,0.3,0.6532671481233016,Random forests,Intensity
+K-05-267,5.6,0.03,0.15683478475920776,Random forests,Intensity
+K-05-269,6.6,0.4,0.15798955498727385,Random forests,Intensity
+K-05-275,3.7,0.2,0.4633684116539407,Random forests,Intensity
+L-04-14886,6.8,0.3,0.17123514101339055,Random forests,Intensity
+L-04-14887,5.3,0,0.25746308557487574,Random forests,Intensity
+L-04-14889,31.7,0,0.171675723745694,Random forests,Intensity
+L-05-14656,40.8,0,0.08697694353953672,Random forests,Intensity
+L-05-14660,24.2,0,0.04149937119242686,Random forests,Intensity
+L-05-14669,34.7,0,0.05883615491071287,Random forests,Intensity
+L-05-14670,36.4,0,0.08534407787782822,Random forests,Intensity
+L-05-14672,26.4,0,0.19919844538301434,Random forests,Intensity
+L-05-14675,6.2,0,0.18472366368361504,Random forests,Intensity
+L-05-14676,7.7,0.2,0.20357152052595362,Random forests,Intensity
+L-05-14677,10.6,0,0.0913610529769543,Random forests,Intensity
+L-05-14683,8.7,0,0.4156103614321204,Random forests,Intensity
+L-06-15016,34.4,0,0.09191870763236021,Random forests,Intensity
+L-06-15017,20.9,0,0.014699163846517482,Random forests,Intensity
+L-06-15063,6.2,0,0.16775053889061875,Random forests,Intensity
+L-06-15065,22.1,0,0.029460280020413177,Random forests,Intensity
+L-06-15070,40.7,0,0.12385843595409896,Random forests,Intensity
+M-04-15549,40.6,0,0.10524218403134028,Random forests,Intensity
+M-04-15550,49.4,0,0.30239580710826763,Random forests,Intensity
+M-05-15736,54.1,0,0.07547033552464982,Random forests,Intensity
+M-06-15812,22.8,0,0.072130976447378925,Random forests,Intensity
+M-06-15813,7.9,0.5,0.2231755964946063,Random forests,Intensity
+M-06-15815,18.6,0,0.023688596547712715,Random forests,Intensity
+M-06-15822,17.8,0,0.08009587317642808,Random forests,Intensity
+M-06-15858,4.7,0.75,0.09776428313122143,Random forests,Intensity
+M-06-15864,7.6,0.05,0.4595290799058438,Random forests,Intensity
+M-06-15876,7,0.15,0.08606430970724377,Random forests,Intensity
+A-04-6978,18.4,0.45,0.8899104208402955,Beta regression,Intensity
+A-04-6993,10.8,1,0.9138930639922013,Beta regression,Intensity
+A-04-7007,41.1,0.5,0.6578549265458146,Beta regression,Intensity
+A-05-7240,26.1,0.05,0.06901355130130683,Beta regression,Intensity
+A-05-7257,21.2,0,0.07265949979181331,Beta regression,Intensity
+A-05-7275,16.8,0.03,0.03824067895208085,Beta regression,Intensity
+A-05-7461,10.2,0.75,0.5505084224217162,Beta regression,Intensity
+A-05-7464,10.2,0.01,0.502061827636238,Beta regression,Intensity
+A-06-7612,37,0.03,0.4833280469360742,Beta regression,Intensity
+B-04-4276,33.5,0.9,0.5134117935579746,Beta regression,Intensity
+B-04-4286,49.1,0.5,0.33479424387256235,Beta regression,Intensity
+B-05-4315,51.6,0.85,0.7065704197432883,Beta regression,Intensity
+B-06-4959,44.9,0.05,0.22707945774218086,Beta regression,Intensity
+B-06-6100,2.8,1,0.29951660169871186,Beta regression,Intensity
+B-07-4987,20.2,0.85,0.868173877668812,Beta regression,Intensity
+B-07-4994,34,0.1,0.3291295657198714,Beta regression,Intensity
+C-04-11022,50.2,0.1,0.17408565712289012,Beta regression,Intensity
+C-05-13101,2.1,0.6,0.873199799515741,Beta regression,Intensity
+C-10-12808,4.1,0.8,0.8799774716523854,Beta regression,Intensity
+C-10-12826,3.8,0.4,0.296747226400973,Beta regression,Intensity
+C-10-12886,4,0.9,0.9999224232431422,Beta regression,Intensity
+C-11-12506,3.5,0.05,0.13989209866397492,Beta regression,Intensity
+C-11-12507,5.2,0.05,0.5105039436276417,Beta regression,Intensity
+C-11-12567,10.8,0.15,0.04678008661961166,Beta regression,Intensity
+C-11-12655,3.7,0.65,0.37793802131141196,Beta regression,Intensity
+C-11-12658,5.3,0.7,0.7571708621152001,Beta regression,Intensity
+D-03-10846,49.2,0.45,0.4488772611474169,Beta regression,Intensity
+D-03-10867,44.7,0.95,0.8924887199127227,Beta regression,Intensity
+D-04-2909,32.8,0.6,0.4501059363366043,Beta regression,Intensity
+D-04-2922,37.2,0.7,0.4339807319284315,Beta regression,Intensity
+D-05-2947,19.8,0.55,0.38043929937666177,Beta regression,Intensity
+D-06-8665,31.9,0.55,0.26067638927078396,Beta regression,Intensity
+E-04-6293,16.1,0.65,0.5255536692578959,Beta regression,Intensity
+E-04-6296,11.3,0.7,0.3921896794739205,Beta regression,Intensity
+E-05-4532,48.8,0.15,0.11304076584334595,Beta regression,Intensity
+E-05-4542,5.3,0.99,0.982871213466272,Beta regression,Intensity
+E-06-6384,21.4,0.5,0.13410531551903757,Beta regression,Intensity
+F-04-3274,26.4,0.25,0.4432354529098486,Beta regression,Intensity
+F-04-3275,37.9,0.8,0.8770851248989694,Beta regression,Intensity
+F-04-3276,20.1,0.95,0.9723819470759669,Beta regression,Intensity
+F-04-3279,25.4,0.95,0.6213115794833763,Beta regression,Intensity
+F-04-3316,5.1,0.4,0.34633166868519477,Beta regression,Intensity
+F-05-3231,28.5,0.3,0.6346774601418833,Beta regression,Intensity
+F-05-3236,11.9,0.6,0.9527777400911855,Beta regression,Intensity
+F-06-3345,36.2,0.01,0.11686324885386248,Beta regression,Intensity
+F-11-12295,10.4,0.35,0.89098183730334235,Beta regression,Intensity
+F-11-13701,11.5,0.8,0.6203557249135825,Beta regression,Intensity
+F-11-13716,36.7,0.05,0.38653538519568353,Beta regression,Intensity
+F-12-4064,18.7,0.4,0.3029047861704805,Beta regression,Intensity
+F-12-4070,21.2,0.7,0.7136153573857154,Beta regression,Intensity
+G-05-1360,4.2,0.65,0.2009086200815526,Beta regression,Intensity
+G-05-1433,8.5,0.25,0.0669063088366552,Beta regression,Intensity
+G-05-1439,13.3,0.25,0.18525880336806205,Beta regression,Intensity
+G-09-2093,15.9,0.25,0.3159320192858062,Beta regression,Intensity
+G-09-2113,34.5,0.8,0.7681720346369177,Beta regression,Intensity
+H-04-5452,37.4,0,0.1557078034143889,Beta regression,Intensity
+H-05-1035,11.7,0,0.037561367973325634,Beta regression,Intensity
+H-06-688,47,0.2,0.09002523420819183,Beta regression,Intensity
+H-09-1980,46.2,0.65,0.5897800591675332,Beta regression,Intensity
+H-09-1989,43.6,0.95,0.915022581116991,Beta regression,Intensity
+H-10-2156,44.8,0.75,0.8013482891480709,Beta regression,Intensity
+H-12-8427,11.6,0.95,0.9841609385428394,Beta regression,Intensity
+H-12-8456,21.5,0.2,0.07754613174121205,Beta regression,Intensity
+H-12-8471,22.7,0.95,0.950470772247089,Beta regression,Intensity
+H-12-8476,31.2,0.95,0.8419505099501037,Beta regression,Intensity
+H-12-8477,17.4,1,0.8420544823955067,Beta regression,Intensity
+H-12-8478,26.5,0.6,0.7714471151348532,Beta regression,Intensity
+K-05-194,47.7,0.2,0.21439887982116484,Beta regression,Intensity
+K-05-265,2.2,0.3,0.025111957430429977,Beta regression,Intensity
+K-05-269,6.6,0.4,0.05088013770616359,Beta regression,Intensity
+L-05-14683,8.7,0,0.04701844410537514,Beta regression,Intensity
+L-06-15016,34.4,0,0.11758340014837783,Beta regression,Intensity
+L-06-15070,40.7,0,0.10305314278104089,Beta regression,Intensity
+M-06-15812,22.8,0,0.087507476691355765,Beta regression,Intensity
+M-06-15858,4.7,0.75,0.1382333980898587,Beta regression,Intensity
+M-06-15876,7,0.15,0.05921765017103613,Beta regression,Intensity
+A-04-6978,18.4,0.45,0.907653786636842,Random forests,Delta intensity
+A-04-6982,4.3,1,0.8478681784265916,Random forests,Delta intensity
+A-04-6988,4.3,1,0.8206181357801743,Random forests,Delta intensity
+A-04-6993,10.8,1,0.8616155093289927,Random forests,Delta intensity
+A-04-7007,41.1,0.5,0.41350217941278783,Random forests,Delta intensity
+A-04-7018,44.2,0.1,0.25087795407059155,Random forests,Delta intensity
+A-04-7019,43.6,0.9,0.5501110952734717,Random forests,Delta intensity
+A-04-7022,4.1,1,0.7894043145559868,Random forests,Delta intensity
+A-05-7217,46.3,0.8,0.6701807098919832,Random forests,Delta intensity
+A-05-7222,12.5,0.95,0.5855137228973785,Random forests,Delta intensity
+A-05-7223,19.3,0.95,0.05962804840790259,Random forests,Delta intensity
+A-05-7224,20,0.75,0.7343345457338999,Random forests,Delta intensity
+A-05-7228,17.5,0.2,0.362302227583527,Random forests,Delta intensity
+A-05-7230,11.8,0.8,0.6930396264445478,Random forests,Delta intensity
+A-05-7232,16.2,0.25,0.22936216323785505,Random forests,Delta intensity
+A-05-7233,11.8,0.05,0.21193899539143485,Random forests,Delta intensity
+A-05-7240,26.1,0.05,0.14707683108024439,Random forests,Delta intensity
+A-05-7257,21.2,0,0.06157252978990929,Random forests,Delta intensity
+A-05-7265,12.7,0.15,0.24971425768388233,Random forests,Delta intensity
+A-05-7275,16.8,0.03,0.14306263571920702,Random forests,Delta intensity
+A-05-7285,13.9,0.05,0.21281946071082997,Random forests,Delta intensity
+A-05-7291,10.6,0.5,0.29149696697026395,Random forests,Delta intensity
+A-05-7293,13.5,0.9,0.7638815365492375,Random forests,Delta intensity
+A-05-7300,12.3,0.85,0.499055643527621,Random forests,Delta intensity
+A-05-7461,10.2,0.75,0.0810186217859949,Random forests,Delta intensity
+A-05-7463,15.2,0.05,0.21822809953678046,Random forests,Delta intensity
+A-05-7464,10.2,0.01,0.44529191582750444,Random forests,Delta intensity
+A-05-7470,16.4,0.5,0.718475013539085,Random forests,Delta intensity
+A-05-7478,11.4,1,0.760666920583416,Random forests,Delta intensity
+A-06-7565,14.5,0.9,0.9085386219107507,Random forests,Delta intensity
+A-06-7612,37,0.03,0.19228495090785064,Random forests,Delta intensity
+A-06-7662,22,0.1,0.29322891564802656,Random forests,Delta intensity
+B-04-4263,35.6,0.25,0.5369298313190828,Random forests,Delta intensity
+B-04-4264,45.2,0.9,0.8322176805585448,Random forests,Delta intensity
+B-04-4268,50,0.95,0.5541210999782897,Random forests,Delta intensity
+B-04-4276,33.5,0.9,0.6675148105930275,Random forests,Delta intensity
+B-04-4284,28.9,0.6,0.8094858629526023,Random forests,Delta intensity
+B-04-4286,49.1,0.5,0.42906220041387316,Random forests,Delta intensity
+B-04-4288,34.7,0.05,0.07531542065867791,Random forests,Delta intensity
+B-05-4293,47.7,0.05,0.05045778114121108,Random forests,Delta intensity
+B-05-4294,50.6,0.45,0.44587045317005924,Random forests,Delta intensity
+B-05-4312,49.2,0.35,0.7495150888922159,Random forests,Delta intensity
+B-05-4314,43.2,0.55,0.3131566139653116,Random forests,Delta intensity
+B-05-4315,51.6,0.85,0.8965024986794294,Random forests,Delta intensity
+B-05-4316,49.9,0.7,0.3334458874329094,Random forests,Delta intensity
+B-06-4959,44.9,0.05,0.1080100478317002,Random forests,Delta intensity
+B-06-4960,41.7,0.3,0.4022113122737559,Random forests,Delta intensity
+B-06-6061,49.2,0.3,0.23008637371339222,Random forests,Delta intensity
+B-06-6100,2.8,1,0.6314159467757762,Random forests,Delta intensity
+B-07-4987,20.2,0.85,0.8686460965645031,Random forests,Delta intensity
+B-07-4994,34,0.1,0.17074427088866972,Random forests,Delta intensity
+C-04-11013,6.6,0.9,0.8787485356210067,Random forests,Delta intensity
+C-04-11022,50.2,0.1,0.15967148392014435,Random forests,Delta intensity
+C-04-11029,42.8,0.95,0.8502954996971649,Random forests,Delta intensity
+C-04-11068,12.6,0.5,0.4971983907869098,Random forests,Delta intensity
+C-04-11076,11.3,0.5,0.5286411296621853,Random forests,Delta intensity
+C-05-13091,5.8,0.2,0.18960430347998153,Random forests,Delta intensity
+C-05-13096,2.4,0.9,0.7822489088759335,Random forests,Delta intensity
+C-05-13101,2.1,0.6,0.7339521311704177,Random forests,Delta intensity
+C-05-13136,52.6,0.1,0.08795077891113051,Random forests,Delta intensity
+C-06-9921,34.1,0.7,0.4312460113683444,Random forests,Delta intensity
+C-06-9926,10.7,0.7,0.741604948261353,Random forests,Delta intensity
+C-06-9939,50.2,0.55,0.5566276116453245,Random forests,Delta intensity
+C-07-9941,50.3,0.35,0.2915332046625245,Random forests,Delta intensity
+C-07-9945,46.3,0.5,0.3540696111771336,Random forests,Delta intensity
+C-07-9960,20,0.01,0.04687598978093005,Random forests,Delta intensity
+C-07-9968,38.2,0.8,0.876570748341355,Random forests,Delta intensity
+C-10-12806,5.1,0.8,0.6639203230165129,Random forests,Delta intensity
+C-10-12808,4.1,0.8,0.8144559138963754,Random forests,Delta intensity
+C-10-12826,3.8,0.4,0.41246070927240613,Random forests,Delta intensity
+C-10-12848,12,0,0.19641487197290536,Random forests,Delta intensity
+C-10-12851,3.5,0.55,0.9210471675188714,Random forests,Delta intensity
+C-10-12858,4.6,0.5,0.29210397957905143,Random forests,Delta intensity
+C-10-12862,4,0.8,0.6520215797578529,Random forests,Delta intensity
+C-10-12886,4,0.9,0.8819839332829715,Random forests,Delta intensity
+C-11-12194,4.2,0.6,0.28483029481908617,Random forests,Delta intensity
+C-11-12506,3.5,0.05,0.29150879568671706,Random forests,Delta intensity
+C-11-12507,5.2,0.05,0.5866695480119776,Random forests,Delta intensity
+C-11-12567,10.8,0.15,0.1692008798043539,Random forests,Delta intensity
+C-11-12568,12.4,0.15,0.27691352468381447,Random forests,Delta intensity
+C-11-12655,3.7,0.65,0.36257550494587426,Random forests,Delta intensity
+C-11-12658,5.3,0.7,0.5494190339294471,Random forests,Delta intensity
+C-11-12664,2.1,0.6,0.4192280199920002,Random forests,Delta intensity
+D-03-10846,49.2,0.45,0.5273357034474844,Random forests,Delta intensity
+D-03-10867,44.7,0.95,0.8947736938066226,Random forests,Delta intensity
+D-04-2906,49,0.3,0.547716845100153,Random forests,Delta intensity
+D-04-2907,22.1,0.6,0.6716737418190394,Random forests,Delta intensity
+D-04-2908,24.2,0.15,0.4266182683875074,Random forests,Delta intensity
+D-04-2909,32.8,0.6,0.4819679085376874,Random forests,Delta intensity
+D-04-2910,26.5,0.3,0.4036046754154496,Random forests,Delta intensity
+D-04-2912,33.6,0.6,0.35163928215542484,Random forests,Delta intensity
+D-04-2914,13.6,0.85,0.9350641875259247,Random forests,Delta intensity
+D-04-2922,37.2,0.7,0.40709894206049146,Random forests,Delta intensity
+D-04-2926,39.7,0.15,0.12179486216831009,Random forests,Delta intensity
+D-04-2930,13,0.75,0.6793508653487081,Random forests,Delta intensity
+D-05-2937,10.8,0.4,0.6838568283927782,Random forests,Delta intensity
+D-05-2941,16,0.3,0.6420922730420433,Random forests,Delta intensity
+D-05-2942,24.5,0.35,0.3539861063671678,Random forests,Delta intensity
+D-05-2947,19.8,0.55,0.5285392562398261,Random forests,Delta intensity
+D-05-2949,34.3,0.8,0.3248348531356313,Random forests,Delta intensity
+D-05-2950,21.2,0.2,0.5399898804944883,Random forests,Delta intensity
+D-05-2951,37.5,0.25,0.2646594220530774,Random forests,Delta intensity
+D-05-2952,33.1,0.85,0.782442552550999,Random forests,Delta intensity
+D-06-8664,35,0.45,0.47739656192980057,Random forests,Delta intensity
+D-06-8665,31.9,0.55,0.4262488507941572,Random forests,Delta intensity
+D-06-8681,21.6,0.03,0.17800643372829472,Random forests,Delta intensity
+D-06-8685,2.2,0.95,0.6666429425269537,Random forests,Delta intensity
+D-11-9404,36.1,0.15,0.5294098757616328,Random forests,Delta intensity
+D-11-9423,58.1,0.3,0.43219239956776895,Random forests,Delta intensity
+D-12-9368,43,0.15,0.36643198395752324,Random forests,Delta intensity
+D-12-9374,27.8,0.35,0.3987942220656828,Random forests,Delta intensity
+D-12-9388,20.2,0.03,0.08998173335431098,Random forests,Delta intensity
+E-04-6267,10.4,1,0.789642050800756,Random forests,Delta intensity
+E-04-6270,33.6,0.6,0.2719279995258759,Random forests,Delta intensity
+E-04-6273,13.2,0.55,0.48413696585673577,Random forests,Delta intensity
+E-04-6274,15.6,0.4,0.38604051839546083,Random forests,Delta intensity
+E-04-6275,11.3,0.65,0.6022398309429275,Random forests,Delta intensity
+E-04-6280,10.6,0.6,0.5736432884421878,Random forests,Delta intensity
+E-04-6283,11.2,0.2,0.26870183363689354,Random forests,Delta intensity
+E-04-6293,16.1,0.65,0.4662777716803226,Random forests,Delta intensity
+E-04-6296,11.3,0.7,0.5093418810341602,Random forests,Delta intensity
+E-04-6300,14.9,0.45,0.49662840529064883,Random forests,Delta intensity
+E-04-6314,13.7,0.8,0.7419792167638943,Random forests,Delta intensity
+E-04-6316,12.3,0.99,0.8943504425749296,Random forests,Delta intensity
+E-05-4532,48.8,0.15,0.22351698799344577,Random forests,Delta intensity
+E-05-4537,4.9,0.9,0.7333819215794006,Random forests,Delta intensity
+E-05-4540,9.9,0.35,0.5655835748691856,Random forests,Delta intensity
+E-05-4542,5.3,0.99,0.8760109747873269,Random forests,Delta intensity
+E-05-4549,39.1,0.3,0.41074289998688013,Random forests,Delta intensity
+E-05-4553,14.7,0.65,0.6109193033855648,Random forests,Delta intensity
+E-05-4563,28.3,0.45,0.37821175915673,Random forests,Delta intensity
+E-05-4565,13.9,0.8,0.8339046517690103,Random forests,Delta intensity
+E-05-4572,17.3,0.55,0.5161795883288338,Random forests,Delta intensity
+E-06-6374,8.1,0.15,0.21401060971462965,Random forests,Delta intensity
+E-06-6384,21.4,0.5,0.13846459530252192,Random forests,Delta intensity
+E-08-9267,40.4,0.25,0.23006421278937048,Random forests,Delta intensity
+E-08-9269,55.5,0.5,0.523282512769746,Random forests,Delta intensity
+E-08-9272,5.5,0.95,0.7892778662429534,Random forests,Delta intensity
+F-04-3274,26.4,0.25,0.2717737046072455,Random forests,Delta intensity
+F-04-3275,37.9,0.8,0.43939374588308727,Random forests,Delta intensity
+F-04-3276,20.1,0.95,0.8503998681893841,Random forests,Delta intensity
+F-04-3277,41.4,0.9,0.42204253647070555,Random forests,Delta intensity
+F-04-3279,25.4,0.95,0.7524326587508543,Random forests,Delta intensity
+F-04-3288,28.9,0.85,0.8562172255021872,Random forests,Delta intensity
+F-04-3289,11.8,0.95,0.9259030936081494,Random forests,Delta intensity
+F-04-3316,5.1,0.4,0.2186786326572674,Random forests,Delta intensity
+F-05-3231,28.5,0.3,0.43191098557494834,Random forests,Delta intensity
+F-05-3233,50.2,0.95,0.7937214037503226,Random forests,Delta intensity
+F-05-3236,11.9,0.6,0.6126075255372851,Random forests,Delta intensity
+F-05-3238,8.1,0.75,0.8896289181859602,Random forests,Delta intensity
+F-05-3240,16,0.9,0.604663887782687,Random forests,Delta intensity
+F-05-3250,13.9,0.99,0.8923604763863489,Random forests,Delta intensity
+F-05-3254,10.2,0.9,0.7593764000163811,Random forests,Delta intensity
+F-05-3255,39.4,0.5,0.37580963919573057,Random forests,Delta intensity
+F-06-3345,36.2,0.01,0.2561368247922143,Random forests,Delta intensity
+F-06-3350,18.2,0.3,0.2836272047606828,Random forests,Delta intensity
+F-06-3364,2.5,0.95,0.6361531491629182,Random forests,Delta intensity
+F-06-3365,17.4,0.95,0.8735489465497142,Random forests,Delta intensity
+F-06-3377,12.7,0.4,0.3633941118708651,Random forests,Delta intensity
+F-06-3392,2.5,0.65,0.1285176263955295,Random forests,Delta intensity
+F-11-12271,33.2,0.4,0.09138693758701877,Random forests,Delta intensity
+F-11-12295,10.4,0.35,0.839941126565369,Random forests,Delta intensity
+F-11-13701,11.5,0.8,0.6791239917958668,Random forests,Delta intensity
+F-11-13716,36.7,0.05,0.13745517674214164,Random forests,Delta intensity
+F-12-4064,18.7,0.4,0.7697583142787261,Random forests,Delta intensity
+F-12-4065,28.9,0.45,0.6631026992508997,Random forests,Delta intensity
+F-12-4070,21.2,0.7,0.8437986377485558,Random forests,Delta intensity
+G-04-5528,44.4,0.35,0.18025829843944902,Random forests,Delta intensity
+G-04-5535,4.8,0.35,0.4495558519850376,Random forests,Delta intensity
+G-05-1360,4.2,0.65,0.26007671190125736,Random forests,Delta intensity
+G-05-1375,3.3,0.99,0.7722023416326147,Random forests,Delta intensity
+G-05-1431,5.2,0.45,0.614506844044334,Random forests,Delta intensity
+G-05-1433,8.5,0.25,0.30428504996866534,Random forests,Delta intensity
+G-05-1439,13.3,0.25,0.44071271976350096,Random forests,Delta intensity
+G-06-1121,4.9,0.5,0.40781046062182713,Random forests,Delta intensity
+G-09-2093,15.9,0.25,0.5730511408413959,Random forests,Delta intensity
+G-09-2094,22.8,0.4,0.5263655611048174,Random forests,Delta intensity
+G-09-2099,45.6,0.55,0.505717009317932,Random forests,Delta intensity
+G-09-2100,49.9,0.7,0.5742681439708079,Random forests,Delta intensity
+G-09-2113,34.5,0.8,0.7046236152671067,Random forests,Delta intensity
+G-09-2125,41.9,0.6,0.4515774205740551,Random forests,Delta intensity
+G-10-2019,46,0.65,0.7418202431103347,Random forests,Delta intensity
+G-10-2020,37.5,0.15,0.3039253818259178,Random forests,Delta intensity
+G-10-2021,53,0.2,0.29658701860482417,Random forests,Delta intensity
+G-10-2022,32.5,0.2,0.21962105710813046,Random forests,Delta intensity
+H-04-5452,37.4,0,0.08221786588433,Random forests,Delta intensity
+H-04-5461,6.6,1,0.7453328625201197,Random forests,Delta intensity
+H-04-5483,30.3,0,0.16351194765350596,Random forests,Delta intensity
+H-04-5494,7.5,0.6,0.6803288849773885,Random forests,Delta intensity
+H-05-1035,11.7,0,0.18633077529005598,Random forests,Delta intensity
+H-05-1036,8.7,0.05,0.19874451288251388,Random forests,Delta intensity
+H-06-688,47,0.2,0.2955318063977961,Random forests,Delta intensity
+H-09-1980,46.2,0.65,0.5685504330560779,Random forests,Delta intensity
+H-09-1987,44.7,0.6,0.5210499122766893,Random forests,Delta intensity
+H-09-1988,50.5,0.7,0.6758296556386545,Random forests,Delta intensity
+H-09-1989,43.6,0.95,0.7394411215894807,Random forests,Delta intensity
+H-09-1991,35.8,0.7,0.8100602805783984,Random forests,Delta intensity
+H-09-1995,58.7,0.85,0.8369488802565019,Random forests,Delta intensity
+H-09-1996,34.2,0.95,0.9189852693589607,Random forests,Delta intensity
+H-10-2140,27.9,0.3,0.3570952452977415,Random forests,Delta intensity
+H-10-2156,44.8,0.75,0.7156329662644961,Random forests,Delta intensity
+H-10-2161,20.5,0.75,0.7851867769766614,Random forests,Delta intensity
+H-10-2172,50.6,0.35,0.5089300409263567,Random forests,Delta intensity
+H-10-2174,7.2,0.65,0.8734299480761026,Random forests,Delta intensity
+H-10-2181,5.8,0.85,0.6577922414901555,Random forests,Delta intensity
+H-10-2301,3.8,0.3,0.7807726085294946,Random forests,Delta intensity
+H-12-8427,11.6,0.95,0.769711170911669,Random forests,Delta intensity
+H-12-8431,30.2,0.4,0.6746721672347344,Random forests,Delta intensity
+H-12-8456,21.5,0.2,0.5341231514737178,Random forests,Delta intensity
+H-12-8462,23.6,0.25,0.28165313375098194,Random forests,Delta intensity
+H-12-8471,22.7,0.95,0.8246444265533001,Random forests,Delta intensity
+H-12-8474,13.7,1,0.8363206543399495,Random forests,Delta intensity
+H-12-8475,23.8,0.75,0.5098159528397849,Random forests,Delta intensity
+H-12-8476,31.2,0.95,0.8733440649124425,Random forests,Delta intensity
+H-12-8477,17.4,1,0.9363393089491381,Random forests,Delta intensity
+H-12-8478,26.5,0.6,0.8180356170043812,Random forests,Delta intensity
+H-12-8479,35,0.25,0.185029541241867,Random forests,Delta intensity
+H-12-8498,18.7,0,0.20985369401711496,Random forests,Delta intensity
+K-04-4340,39.7,0.15,0.020995514962473594,Random forests,Delta intensity
+K-04-4355,20.2,0.15,0.416828070794936,Random forests,Delta intensity
+K-05-194,47.7,0.2,0.36853584445763865,Random forests,Delta intensity
+K-05-232,3.3,0.25,0.40835704428352226,Random forests,Delta intensity
+K-05-265,2.2,0.3,0.19029394580989767,Random forests,Delta intensity
+K-05-267,5.6,0.03,0.2553277360051288,Random forests,Delta intensity
+K-05-269,6.6,0.4,0.2480241674890364,Random forests,Delta intensity
+K-05-275,3.7,0.2,0.4178230129617242,Random forests,Delta intensity
+L-04-14886,6.8,0.3,0.39172154615857174,Random forests,Delta intensity
+L-04-14887,5.3,0,0.415734635126222,Random forests,Delta intensity
+L-04-14889,31.7,0,0.09467761301353889,Random forests,Delta intensity
+L-05-14656,40.8,0,0.028823722600466672,Random forests,Delta intensity
+L-05-14660,24.2,0,0.10596836995513947,Random forests,Delta intensity
+L-05-14669,34.7,0,0.06806470015287808,Random forests,Delta intensity
+L-05-14670,36.4,0,0.13427755008920172,Random forests,Delta intensity
+L-05-14672,26.4,0,0.07757916404969678,Random forests,Delta intensity
+L-05-14675,6.2,0,0.2876591106287433,Random forests,Delta intensity
+L-05-14676,7.7,0.2,0.12588682910804522,Random forests,Delta intensity
+L-05-14677,10.6,0,0.0789788625761001,Random forests,Delta intensity
+L-05-14683,8.7,0,0.11542379020218091,Random forests,Delta intensity
+L-06-15016,34.4,0,0.04531338043563782,Random forests,Delta intensity
+L-06-15017,20.9,0,0.18247871662856452,Random forests,Delta intensity
+L-06-15063,6.2,0,0.3147234487812041,Random forests,Delta intensity
+L-06-15065,22.1,0,0.08778236643267306,Random forests,Delta intensity
+L-06-15070,40.7,0,0.042906345525084655,Random forests,Delta intensity
+M-04-15549,40.6,0,0.29683107143725695,Random forests,Delta intensity
+M-04-15550,49.4,0,0.1601677979700698,Random forests,Delta intensity
+M-05-15736,54.1,0,0.3271970244900905,Random forests,Delta intensity
+M-06-15812,22.8,0,0.048608673142016945,Random forests,Delta intensity
+M-06-15813,7.9,0.5,0.28816686354364607,Random forests,Delta intensity
+M-06-15815,18.6,0,0.10339087000414204,Random forests,Delta intensity
+M-06-15822,17.8,0,0.07841919228041438,Random forests,Delta intensity
+M-06-15858,4.7,0.75,0.26112864079092446,Random forests,Delta intensity
+M-06-15864,7.6,0.05,0.43747602248356127,Random forests,Delta intensity
+M-06-15876,7,0.15,0.2460775412629707,Random forests,Delta intensity
+A-04-6978,18.4,0.45,0.9264736342520765,Beta regression,Delta intensity
+A-04-6993,10.8,1,0.9612183756298414,Beta regression,Delta intensity
+A-04-7007,41.1,0.5,0.1826840582411267,Beta regression,Delta intensity
+A-05-7240,26.1,0.05,0.12780338479224443,Beta regression,Delta intensity
+A-05-7257,21.2,0,0.10439858354655736,Beta regression,Delta intensity
+A-05-7275,16.8,0.03,0.07876565846346938,Beta regression,Delta intensity
+A-05-7461,10.2,0.75,0.03678738051305814,Beta regression,Delta intensity
+A-05-7464,10.2,0.01,0.019906326037467094,Beta regression,Delta intensity
+A-06-7612,37,0.03,0.19169575584247955,Beta regression,Delta intensity
+B-04-4276,33.5,0.9,0.7242411192384802,Beta regression,Delta intensity
+B-04-4286,49.1,0.5,0.3653885668327614,Beta regression,Delta intensity
+B-05-4315,51.6,0.85,0.7709630637561439,Beta regression,Delta intensity
+B-06-4959,44.9,0.05,0.09387066043463362,Beta regression,Delta intensity
+B-06-6100,2.8,1,0.8062675681975585,Beta regression,Delta intensity
+B-07-4987,20.2,0.85,0.9436830587271852,Beta regression,Delta intensity
+B-07-4994,34,0.1,0.19290995430240135,Beta regression,Delta intensity
+C-04-11022,50.2,0.1,0.18256209142682756,Beta regression,Delta intensity
+C-05-13101,2.1,0.6,0.5041445736087,Beta regression,Delta intensity
+C-10-12808,4.1,0.8,0.8389516464871759,Beta regression,Delta intensity
+C-10-12826,3.8,0.4,0.027124636326536933,Beta regression,Delta intensity
+C-10-12886,4,0.9,0.8514957994597154,Beta regression,Delta intensity
+C-11-12506,3.5,0.05,0.08240979152609224,Beta regression,Delta intensity
+C-11-12507,5.2,0.05,0.7697357762079134,Beta regression,Delta intensity
+C-11-12567,10.8,0.15,0.16862957287290378,Beta regression,Delta intensity
+C-11-12655,3.7,0.65,0.004817935791183566,Beta regression,Delta intensity
+C-11-12658,5.3,0.7,0.7610997176092594,Beta regression,Delta intensity
+D-03-10846,49.2,0.45,0.4579246274709049,Beta regression,Delta intensity
+D-03-10867,44.7,0.95,0.8152855290244886,Beta regression,Delta intensity
+D-04-2909,32.8,0.6,0.40059018365749854,Beta regression,Delta intensity
+D-04-2922,37.2,0.7,0.3062750870124232,Beta regression,Delta intensity
+D-05-2947,19.8,0.55,0.39910861828348265,Beta regression,Delta intensity
+D-06-8665,31.9,0.55,0.38940302991258124,Beta regression,Delta intensity
+E-04-6293,16.1,0.65,0.24839928756764648,Beta regression,Delta intensity
+E-04-6296,11.3,0.7,0.49222592561460754,Beta regression,Delta intensity
+E-05-4532,48.8,0.15,0.14211149752791075,Beta regression,Delta intensity
+E-05-4542,5.3,0.99,0.8924636647374995,Beta regression,Delta intensity
+E-06-6384,21.4,0.5,0.08484082369459493,Beta regression,Delta intensity
+F-04-3274,26.4,0.25,0.16556651103399095,Beta regression,Delta intensity
+F-04-3275,37.9,0.8,0.40803102825486176,Beta regression,Delta intensity
+F-04-3276,20.1,0.95,0.916698354961737,Beta regression,Delta intensity
+F-04-3279,25.4,0.95,0.662132930758281,Beta regression,Delta intensity
+F-04-3316,5.1,0.4,0.13894222479482773,Beta regression,Delta intensity
+F-05-3231,28.5,0.3,0.44195946342374104,Beta regression,Delta intensity
+F-05-3236,11.9,0.6,0.476165329314239,Beta regression,Delta intensity
+F-06-3345,36.2,0.01,0.04872927606843569,Beta regression,Delta intensity
+F-11-12295,10.4,0.35,0.8853742501553125,Beta regression,Delta intensity
+F-11-13701,11.5,0.8,0.7070684972145358,Beta regression,Delta intensity
+F-11-13716,36.7,0.05,0.13196494124103314,Beta regression,Delta intensity
+F-12-4064,18.7,0.4,0.6002417152890468,Beta regression,Delta intensity
+F-12-4070,21.2,0.7,0.8314652750619008,Beta regression,Delta intensity
+G-05-1360,4.2,0.65,0.1471053058298643,Beta regression,Delta intensity
+G-05-1433,8.5,0.25,0.012396014379791948,Beta regression,Delta intensity
+G-05-1439,13.3,0.25,0.34094673741144094,Beta regression,Delta intensity
+G-09-2093,15.9,0.25,0.5229113241729862,Beta regression,Delta intensity
+G-09-2113,34.5,0.8,0.6083221020107256,Beta regression,Delta intensity
+H-04-5452,37.4,0,0.07076429770743049,Beta regression,Delta intensity
+H-05-1035,11.7,0,0.15827539043230457,Beta regression,Delta intensity
+H-06-688,47,0.2,0.27334029235393176,Beta regression,Delta intensity
+H-09-1980,46.2,0.65,0.5226548485220308,Beta regression,Delta intensity
+H-09-1989,43.6,0.95,0.7226010884114105,Beta regression,Delta intensity
+H-10-2156,44.8,0.75,0.6164151857106893,Beta regression,Delta intensity
+H-12-8427,11.6,0.95,0.9042705094707164,Beta regression,Delta intensity
+H-12-8456,21.5,0.2,0.6697669908780384,Beta regression,Delta intensity
+H-12-8471,22.7,0.95,0.8505117093955947,Beta regression,Delta intensity
+H-12-8476,31.2,0.95,0.793053672741364,Beta regression,Delta intensity
+H-12-8477,17.4,1,0.9436051870960398,Beta regression,Delta intensity
+H-12-8478,26.5,0.6,0.6708704354961786,Beta regression,Delta intensity
+K-05-194,47.7,0.2,0.21752062899524532,Beta regression,Delta intensity
+K-05-265,2.2,0.3,7.810213288297159e-4,Beta regression,Delta intensity
+K-05-269,6.6,0.4,0.24072427650477052,Beta regression,Delta intensity
+L-05-14683,8.7,0,0.2325992338449826,Beta regression,Delta intensity
+L-06-15016,34.4,0,0.17398903988782502,Beta regression,Delta intensity
+L-06-15070,40.7,0,0.1357861317883973,Beta regression,Delta intensity
+M-06-15812,22.8,0,0.14965435958192946,Beta regression,Delta intensity
+M-06-15858,4.7,0.75,0.08041572773602838,Beta regression,Delta intensity
+M-06-15876,7,0.15,0.3221995613210091,Beta regression,Delta intensity
