@@ -15,9 +15,43 @@ tree_dir = 'data/manual-clip-trees/'
 histogram_dir = 'data/histograms-manual/'
 scorch_data = "data/mortality_scorch_survey - data.csv"
 histograms_file = 'data/compiledHistogram-manual.csv'
-#histogramBreaks = seq(10000,55000,500)
-#pretty(reflectance(histogramBreaks), 100)
+seed = 313337
+
 histogramBreaks = seq(-20,0, by = 0.2)
+
+# Function to make it easy to use the same seed, and settings in all analyses. during R2 revision
+RF_with_Boruta = function(xs, ys, seed, borutaRuns=1000, vars=c('Confirmed'), ntree=250, ..., mtry=5, corr.bias=TRUE) {
+  set.seed(seed)
+  impvars = Boruta::Boruta(xs, ys, maxRuns=borutaRuns)
+  impvars = names(impvars$finalDecision)[impvars$finalDecision == vars]
+  set.seed(seed)
+  RF = randomForest::randomForest(y = ys, x = xs[,impvars], ntree=ntree, keep.forest=TRUE,
+                                  mtry=mtry,corr.bias=corr.bias)
+}
+
+# Function to do forward stepwise reg. Written by ChatGPT, and functionality confirmed JBC
+forward_step_betareg <- function(response, predictors, data, maxit=100) {
+  control <- betareg.control(maxit=maxit) # make it quicker!
+  f_null <- as.formula(paste(response, "~ 1"))
+  current_model <- betareg(f_null, data = data)
+  remaining <- predictors
+  selected <- c()
+  repeat {
+    aics <- sapply(remaining, function(v) {
+      f <- as.formula(paste(response, "~",paste(paste0("`", c(selected, v), "`"), collapse=" + ")))
+      AIC(betareg(f, data=data, control=control)) #make it quicker with 50 iterations
+    })
+    best <- names(which.min(aics))
+    cat('adding', best, 'to model\n')
+    if (min(aics) < AIC(current_model)) {
+      selected <- c(selected, best)
+      f <- as.formula(paste(response, "~",paste(paste0("`", selected, "`"), collapse=" + ")))
+      current_model <- betareg(f, data=data) # use default settings,not quick review
+      remaining <- setdiff(remaining, best)
+    } else break
+  }
+  return(current_model)
+}
 
 
 update = FALSE
@@ -47,6 +81,32 @@ s = as.numeric(s)
 scorch_ocular$`% SCORCH` = s
 if(exists('s')) rm(s)
 scorch_ocular = mutate(scorch_ocular, UNQ = paste0(TILE, '-', TAG_ID))
+
+# get estimate of number of points in the point clouds (for discussion)
+if(update) {
+  point_density = list()
+  x = filter(fn, phase=='post')
+  for(i in 1:nrow(x)) {
+    path = x[i,'path']
+    n = lidR::readLAS(path) %>% CrownScorchTLS::remove_stem() %>% nrow
+    id = x[i, 'treeid']
+    tmp = filter(scorch_ocular, UNQ == id)
+    scorch = tmp$`% SCORCH`
+    dbh= tmp$DBH_CM
+    output = data.frame(id=id, dbh=dbh, scorch=scorch, points=n, path=path)
+    point_density[[id]] = output
+    print(output)
+  }
+  point_density = do.call(rbind, point_density)
+  write_csv(point_density, 'data/tree-point-density.csv')
+}
+point_density = read_csv('data/tree-point-density.csv')
+head(point_density)
+ggplot(point_density, aes(x=dbh, y=points)) + geom_point(alpha=0.5) + theme_bw() + 
+      labs(x = 'dbh, cm', y = 'lidar returns') #+ scale_y_log10()
+ggsave('figs/point_density.jpg', device='jpeg', width=4, height=4, dpi=600)
+filter(point_density, dbh<=10) %>% summarize(mean=mean(points),sd=sd(points), min=min(points))
+point_density %>% arrange(-dbh) %>% slice(1:3) %>% pull(points) %>% min()
 
 # Generate histograms of scanned trees
 make_plot = FALSE
@@ -133,121 +193,103 @@ for(c in 2:ncol(all_data)) {
   all_data[,c] = as.numeric(trimws(all_data[,c]))
 }
 
+# Run random forest and beta regresion models for itnensity and deltaIntensity
 if(update) {
   
   #intialize
   if(any(all_data$scorch>1)) all_data$scorch = all_data$scorch/100
-  seed = 781699
-  set.seed(seed)
   
   # Random forest model (Intensity)
   data.int = select(all_data, contains(c('scorch', 'intensity')))
-  impvars.int = Boruta::Boruta(data.int[,-1], data.int[,1], maxRuns=250)
-  impvars.int = names(impvars.int$finalDecision)[impvars.int$finalDecision == 'Confirmed']
-  RF_scorch_int = randomForest::randomForest(y = data.int[,1],
-                                             x = data.int[,impvars.int],
-                                             ntree=250,
-                                             keep.forest=TRUE,
-                                             mtry=5,
-                                             corr.bias=TRUE); print(RF_scorch_int)
-  #save that data for output
-  df.rf.int = data.frame(id = all_data$id,
-                         dbh = all_data$dbh,
-                         observed = data.int[,'scorch'], 
-                         predicted = predict(RF_scorch_int),
-                         model = 'Random forests',
-                         response = 'Intensity')
+  RF_scorch_int = RF_with_Boruta(xs = data.int[,-1], ys = data.int[,1], seed=seed)
   
   # Beta regression model (Intensity)
-  data.int$sc = data.int$scorch
-  data.int$sc[data.int$scorch == 0] = 0.001
-  data.int$sc[data.int$scorch == 1] = 0.999
-  f_int = paste0('sc ~ ', paste0('`', impvars.int, '`', collapse = ' + '))
-  train_rows = sample(1:nrow(data.int), 0.7*ceiling(nrow(data.int)))
-  br_mod_int = betareg(f_int, data=data.int[train_rows,])
-  
-  df.br.int = data.frame(id = all_data$id[-train_rows],
-                         dbh = all_data$dbh[-train_rows],
-                         observed = data.int[-train_rows,1], 
-                         predicted = predict(br_mod_int, data.int[-train_rows,-1]),
-                         model = 'Beta regression',
-                         response = 'Intensity')
+  data.int$sc = pmax(pmin(data.int$scorch/100, 0.999), 0.001) #clamp for betareg
+  set.seed(seed)
+  train_rows.b.int = sample(1:nrow(data.int), 0.7*ceiling(nrow(data.int)))
+  predictors  =  colnames(select(data.int, contains('intensity')))
+  br_mod_int = forward_step_betareg('sc', predictors, data.int[train_rows.b.int,])
   
   # Random forest model (delta Intensity)
   data.delt = select(all_data, contains(c('scorch', 'delta')))
-  impvars.delt = Boruta::Boruta(data.delt[,-1], data.delt[,1], maxRuns=1000)
-  impvars.delt = names(impvars.delt$finalDecision)[impvars.delt$finalDecision == 'Confirmed']
-  set.seed(seed)
-  RF_scorch_delta = randomForest::randomForest(y = data.delt[,1],
-                                             x = data.delt[,impvars.delt],
-                                             ntree=250,
-                                             keep.forest=TRUE,
-                                             mtry=5,
-                                             corr.bias=TRUE); print(RF_scorch_delta)
-  df.rf.delt = data.frame(id = all_data$id,
-                          dbh = all_data$dbh,
-                          observed = data.delt[,1], 
-                          predicted = predict(RF_scorch_delta),
-                          model = 'Random forests',
-                          response = 'Delta intensity')
-  
-  
-  # Beta regression with  Delta intensity
-  data.delt$sc = data.int$sc
-  f_delt = formula(paste0('sc ~ ', paste0('`', impvars.delt, '`', collapse=' + ')))
-  br_mod_delt = betareg(f_delt, data=data.delt[train_rows,])
-  df.br.delt = data.frame(id = all_data$id[-train_rows],
-                          dbh = all_data$dbh[-train_rows],
-                          observed = data.delt[-train_rows,1],
-                          predicted = predict(br_mod_delt, data.delt[-train_rows,-1]),
-                          model = 'Beta regression',
-                          response = 'Delta intensity')
-  
-  
-  # Combine and save prediction outputs
-  df = rbind(df.rf.int, df.br.int, df.rf.delt, df.br.delt)
-  
-  
-  write_csv(df, 'data/model-predictions.csv')
-  # Output random forest models
-  save(RF_scorch_int, RF_scorch_delta, lm_mod_int, lm_mod_delt, file='data/RF_models.Rdata')
-}
- 
-load('data/RF_models.Rdata')
-model_predictions = read_csv('data/model-predictions.csv')
+  RF_scorch_delta = RF_with_Boruta(xs = data.delt[,-1], ys = data.delt[,1], seed=seed)
 
+  # Beta regression with  Delta intensity
+  data.delt$sc = pmax(pmin(data.delt$scorch/100, 0.999), 0.001) #clamp for betareg
+  set.seed(seed)
+  train_rows.b.delt = sample(1:nrow(data.delt), 0.7*ceiling(nrow(data.delt)))
+  predictors  =  colnames(select(data.delt, contains('delta')))
+  br_mod_delt = forward_step_betareg('sc', predictors, data.delt[train_rows.b.delt,])
+  
+  # Output random forest models
+  save(RF_scorch_int,RF_scorch_delta,
+       br_mod_int, br_mod_delt, 
+       file='data/RF_models.Rdata')
+  save(train_rows.b.delt, train_rows.b.int, file='data/training_rows.Rdata')
+}
+
+# Prepare data for observed vs. predicted charts
+load('data/RF_models.Rdata')
+load('data/training_rows.Rdata')
+
+df.rf.int = data.frame(id = all_data$id,
+                       dbh = all_data$dbh,
+                       observed = all_data$scorch,
+                       predicted = predict(RF_scorch_int),
+                       model = 'Random forests',
+                       response = 'Intensity')
+df.rf.delt = data.frame(id = all_data$id,
+                        dbh = all_data$dbh,
+                        observed = all_data$scorch, 
+                        predicted = predict(RF_scorch_delta),
+                        model = 'Random forests',
+                        response = 'Delta intensity')
+df.br.int = data.frame(id = all_data$id[-train_rows.b.int],
+                       dbh = all_data$dbh[-train_rows.b.int],
+                       observed = all_data[-train_rows.b.int,'scorch'], 
+                       predicted = predict(br_mod_int, all_data[-train_rows.b.int,])*100,
+                       model = 'Beta regression',
+                       response = 'Intensity')
+df.br.delt = data.frame(id = all_data$id[-train_rows.b.delt],
+                        dbh = all_data$dbh[-train_rows.b.delt],
+                        observed = all_data[-train_rows.b.delt,'scorch'],
+                        predicted = predict(br_mod_delt, all_data[-train_rows.b.delt,])*100,
+                        model = 'Beta regression',
+                        response = 'Delta intensity')
+
+# Combine and save prediction outputs
+df = rbind(df.rf.int, df.br.int, df.rf.delt, df.br.delt)
+write_csv(df, 'data/model-predictions.csv')
+
+# Figure output showing model predictions
+model_predictions = read_csv('data/model-predictions.csv')
 model_outcomes = model_predictions %>% group_by(response, model) %>%
     mutate(resid = observed-predicted) %>%
     summarize(mean_diff = mean(resid), 
               rmse = sqrt(mean(resid^2)),
-              nrmse = sqrt(mean(resid^2/mean(observed)))*100,
+              nrmse = rmse/mean(observed)*100,
               r2 = summary(lm(observed~predicted))$r.squared,
               smdape = median(200*abs(observed-predicted)/(abs(observed)+abs(predicted))),
               p = summary(lm(predicted~observed))[[4]][2,4])
 model_outcomes
-
 write_csv(model_outcomes, 'figs/model-outcomes.csv')
-
 model_outcomes = model_outcomes %>% mutate(
-                             lab.r2 = paste0('R^2 == ', round(r2,3)),
-                             lab.rmse = paste0('RMSE == ', round(rmse,1)),
-                             lab.nrmse = paste0('nRMSE == ', round(nrmse,1),"*\'%\'"),
-                             lab.smdape = paste0('SMdAPE == ', round(smdape,1), "*\'%\'"))
+                             lab.r2 = paste0('R² = ', round(r2,3)),
+                             lab.rmse = paste0('RMSE = ', round(rmse,1)),
+                             lab.nrmse = paste0('nRMSE = ', round(nrmse,1),"*%"),
+                             lab.smdape = paste0('SMdAPE = ', round(smdape,1), "%"),
+                             lab.all = paste(lab.r2, lab.rmse, lab.nrmse, lab.smdape, sep = "\n"))
 
 fig.allmods = model_predictions %>% ggplot(aes(x = observed, y = predicted)) + 
-    geom_point(alpha = 0.6) +
-    facet_grid(rows = vars(model), cols = vars(response), scales='free_y') +
+    geom_point(alpha = 0.6) + coord_fixed() +
+    facet_grid(rows = vars(model), cols = vars(response)) +# scales='free_y') +
     #lims(y = c(0,100), x = c(0,100)) +
     geom_smooth(method = 'lm', se=FALSE, color='dodgerblue3') +
     geom_abline(slope = 1, intercept = 0, linetype = 'dashed') +
     theme_bw() + 
     labs(x = expression(Scorch[observed]), y = expression(Scorch[predicted])) +
-    geom_text(data = model_outcomes, size = 3, aes(x=0,y=.99, label = lab.r2), parse=TRUE, hjust=0) +
-    geom_text(data = model_outcomes, size = 3, aes(x=0,y=.92, label = lab.rmse), parse=TRUE, hjust=0) +
-    geom_text(data = model_outcomes, size = 3, aes(x=0,y=.85, label = lab.nrmse), parse=TRUE, hjust=0) +
-    geom_text(data = model_outcomes, size = 3, aes(x=0,y=.78, label = lab.smdape), parse=TRUE, hjust=0)
+    geom_text(data= model_outcomes, size=3, aes(x=0,y=Inf, label=lab.all),hjust=0,vjust=1.1)#, parse=TRUE)
 
-   
 fig.allmods
 # Model Output figures
 ggsave('figs/modelFits.jpg', fig.allmods, width = 8, height = 8, dpi = 600)
@@ -258,7 +300,7 @@ model_predictions %>% filter(model == 'Random forests') %>%
   filter(response == 'Delta intensity') %>%
   mutate(difference = predicted-observed,
          abs_diff = abs(difference),
-         diff_lt_10per = abs_diff<=0.10) %>% 
+         diff_lt_10per = abs_diff<=10) %>% 
   group_by(dbh>50) %>% summarize(sum(diff_lt_10per)/length(diff_lt_10per))
 
 # Variable importance plots
@@ -279,7 +321,107 @@ fig.varImportance = ggplot(data=impdf, aes(y=purity, x=intensity)) +
   ggsave('figs/varImportanceplot.jpg', width=8, height=4, dpi=600)
   ggsave('figs/varImportanceplot.pdf', width=8, height=4, dpi=600)
 
-##### Example histograms
+## Make autosegmentation model with figure/comparison similar
+auto.dat = read_csv('data/compiledHistogram-auto.csv')
+auto.dat = na.omit(auto.dat)
+nrow(auto.dat)
+xs = select(auto.dat, contains('intensity'))
+ys = auto.dat$scorch
+autoseg.mod = RF_with_Boruta(xs, ys, seed)
+
+## Output Error metrics.
+auto.dat$oob_pred = predict(autoseg.mod)
+auto_modelOutcomes = auto.dat %>% mutate(resid = scorch - oob_pred) %>%
+  summarize(mean_diff = mean(resid), 
+            rmse = sqrt(mean(resid^2)),
+            nrmse = rmse/mean(scorch)*100,
+            #nrmse = sqrt(mean(resid^2/mean(scorch)))*100,
+            r2 = summary(lm(scorch~oob_pred))$r.squared,
+            smdape = median(200*abs(resid)/(abs(scorch)+abs(oob_pred))),
+            p = summary(lm(oob_pred~scorch))[[4]][2,4]) %>%
+  mutate(
+    lab.r2 = paste0('R² = ', round(r2,3)),
+    lab.rmse = paste0('RMSE = ', round(rmse,3)),
+    lab.nrmse = paste0('nRMSE = ', round(nrmse,1),"%"),
+    lab.smdape = paste0('SMdAPE = ', round(smdape,1), "%"),
+    lab.all = paste0(lab.r2, '              ', lab.rmse, '\n', lab.nrmse, '    ', lab.smdape))
+print(auto_modelOutcomes)
+auto_modelOutcomes$rmse
+auto_modelOutcomes$lab.all
+## Make autosegmentaiton figure 
+modelFitsAuto = auto.dat %>% mutate(predicted = oob_pred, observed=scorch) %>% 
+  ggplot(aes(x = observed, y = predicted)) + 
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = 'lm', se=FALSE, color='dodgerblue3') +
+  geom_abline(slope = 1, intercept = 0, linetype = 'dashed') +
+  theme_bw() + coord_fixed()+ lims(x=0:1,y=0:1) +
+  labs(x = expression(Scorch[observed]), y = expression(Scorch[predicted])) +
+  geom_text(data=auto_modelOutcomes, size=3, aes(x=0,y=Inf, label=lab.all), hjust=0,vjust=1.1)+
+  ggtitle('Automatic segmentation')
+modelFitsAuto
+ggsave('figs/modelFit-auto.jpg', modelFitsAuto, width = 4, height = 4, dpi = 600)
+ggsave('figs/modelFits-auto.pdf', modelFitsAuto, width = 4, height = 4, dpi = 600)
+
+### Look at manual RF Intensity model  leaving out smaller trees.
+if(update) {
+  data.int = select(all_data, contains(c('scorch', 'dbh', 'intensity')))
+  output = list()
+  for(dbh_threshold in seq(0,55,by=2.5)) {
+    x = filter(data.int, dbh >= dbh_threshold)
+    if(nrow(x)<30) next
+    xs = select(x, contains('intensity'))
+    cat(nrow(xs), 'training points\t')
+    ys = as.numeric(x$scorch)
+    if(dbh_threshold==0) {mod = RF_scorch_int} else {
+      mod = RF_with_Boruta(xs,ys,seed)  # recycle origin value if all included
+    }
+    x$oob_pred = predict(mod)
+    r2 = summary(lm(oob_pred ~ scorch, data= x))$r.squared;r2
+    rmse = sqrt(mean(with(x, oob_pred - scorch)^2))
+    md = mean(with(x, oob_pred - scorch))
+    tmp = data.frame(min_dbh= dbh_threshold, n=nrow(xs),r2=r2,rmse=rmse,md=md)
+    output[[length(output)+1]] = tmp
+    print(tmp)
+  }
+  manual_dropSmall_results = do.call(rbind, output)
+  manual_dropSmall_results$segmentation='manual segmentation'
+  
+  # Look at automatic segmentation, leaving out small trees
+  auto.dat$dbh = auto.dat$DBH_CM
+  output = list()
+  for(dbh_threshold in seq(0,55,by=2.5)) {
+    x = filter(auto.dat, dbh >= dbh_threshold)
+    if(nrow(x)<30) next
+    xs = select(x, contains('intensity'))
+    cat(nrow(xs), 'training points\t')
+    ys = as.numeric(x$scorch)
+    mod = RF_with_Boruta(xs, ys, seed)
+    x$oob_pred = predict(mod)
+    r2 = summary(lm(oob_pred ~ scorch, data= x))$r.squared
+    rmse = sqrt(mean(with(x, oob_pred - scorch)^2))
+    md = mean(with(x, oob_pred - scorch))
+    tmp = data.frame(min_dbh= dbh_threshold, n=nrow(xs),r2=r2,rmse=rmse,md=md)
+    output[[length(output)+1]] = tmp
+    print(tmp)
+  }
+  auto_dropSmall_results = do.call(rbind, output)
+  auto_dropSmall_results$segmentation='automatic segmentation'
+  dropSmall_results = rbind(auto_dropSmall_results, manual_dropSmall_results)
+  write_csv(dropSmall_results, 'data/dropSmall_results.csv')
+}
+dropSmall_results = read_csv('data/dropSmall_results.csv')
+
+dropSmallTreesFig = ggplot(dropSmall_results, aes(x= min_dbh, y = r2, color=segmentation)) +
+  labs(size='Sample size', x='Minimum dbh (cm)', y=expression(r^2)) +
+  geom_smooth(method='lm', se=FALSE) + theme_bw() + geom_point(aes(size=n), alpha=0.5) +
+  scale_color_brewer(palette='Accent')
+dropSmallTreesFig
+ggsave('figs/dropSmallTreesFig.jpg', dropSmallTreesFig, width=6,height=4, dpi=600)
+ggsave('figs/dropSmallTreesFig.pdf', dropSmallTreesFig, width=6,height=4, dpi=600)
+
+dropSmall_results %>% filter(min_dbh == 0 | min_dbh==10)
+
+##### Example histograms From manual seg trees.
 donetrees = unique(compiledHistograms$treeid)
 select_trees = 
   c('M-04-15549' , 'L-05-14669',# 0% scorch
@@ -308,12 +450,70 @@ fig.exampleHistograms
 ggsave('figs/example_histograms.pdf', width=6, height=8)
 ggsave('figs/example_histograms.jpg', width=6, height=8, dpi=600)
 
+# Single pre-burn histogram
+fig.singleHistogram = compiledHistograms %>% 
+  filter(treeid %in% select_trees[1]) %>%
+  pivot_longer(c(dens0,dens1)) %>%
+  left_join(scorchdb) %>%
+  filter(name == 'dens0') %>%
+  ggplot(aes(x=intensity, y=value)) +
+  geom_line(size=1) + 
+  #theme_bw() + 
+  labs(x='Return intensity (dB)', y='Density') 
+fig.singleHistogram + theme_bw()
+ggsave('figs/single_histogram.pdf', width=5, height=5)
+ggsave('figs/single_histogram.jpg', width=5, height=5, dpi=600)
+
+
+x = compiledHistograms %>% 
+  filter(treeid %in% select_trees[5]) %>%
+  pivot_longer(c(dens0,dens1)) %>%
+  filter(name == 'dens1')
+y = x %>% mutate(intensity = round(intensity)) %>%
+  group_by(intensity) %>% 
+  summarize(value = mean(value)) %>%
+  ggplot(aes(x=intensity, y=value)) +
+  geom_line(data=x, size=1) + 
+  labs(x='Return intensity (dB)', y='Density') +
+  theme_bw()
+y
+ggsave('figs/histogram_features1.jpg', width=5, height=5, dpi=600)
+y + geom_col(color=grey(0.5),fill=grey(0.6)) + geom_line(data=x, size=1) 
+ggsave('figs/histogram_features2.jpg', width=5, height=5, dpi=600)
+
+s = compiledHistograms %>% 
+  filter(treeid %in% select_trees[5]) %>%
+  mutate(diff = dens1-dens0)
+
+t = s %>% group_by(intensity) %>% 
+  mutate(intensity = round(intensity)) %>%
+  summarize(value = mean(diff))
+
+u = s %>% ggplot(aes(x=intensity,y=diff)) + 
+  geom_line(size=1) +
+  geom_hline(yintercept=0, linetype='dashed') +
+  theme_bw() +
+  labs(x=expression(Delta~density[postburn-preburn]), y='Density') 
+
+u
+ggsave('figs/histogram_features-delta1.jpg', width=5, height=5, dpi=600)
+
+v = t %>% ggplot(aes(x=intensity,y=value)) + 
+  geom_col() +
+  geom_line(data = s, aes(x=intensity,y=diff), size=1) +
+  geom_hline(yintercept=0, linetype='dashed') +
+  theme_bw() +
+  labs(x=expression(Delta~density[postburn-preburn]), y='Density') 
+v
+ggsave('figs/histogram_features-delta2.jpg', width=5, height=5, dpi=600)
+
 # All histograms combined
 histdf = scorch_ocular %>% mutate(treeid = UNQ) %>% select(treeid, `% SCORCH`) %>%
   right_join(compiledHistograms) %>%
   mutate( scorch_cls = cut(`% SCORCH`, seq(0,100,25))) %>%
   na.omit
 
+fig.singleHistogram + theme_jbc()
 
 a = ggplot(histdf, aes(x=intensity, y=dens0)) + 
   geom_line(aes(group=treeid), color='grey', alpha=0.5, size=1) +
@@ -321,7 +521,9 @@ a = ggplot(histdf, aes(x=intensity, y=dens0)) +
   labs(y='Density', x = 'Return intensity (dB)') +
   lims(y=c(0,0.2)) + labs(color = '% Scorch') +
   ggtitle('Pre-burn return intensity') +
-  theme(legend.position = c(0.22,0.70), legend.background = element_blank())
+  #theme(legend.position = c(0.22,0.70), legend.background = element_blank(), legend.spacing.y=unit(0.1,'cm')) +
+  #guides(color=guide_legend(ncol=2))
+  theme(legend.position='none')
 
 b = ggplot(histdf, aes(x=intensity, y=dens1)) + 
   geom_line(aes(group=treeid), color='grey', alpha=0.5, size=1) +
@@ -337,24 +539,22 @@ c = ggplot(histdf, aes(x=intensity, y=delta)) +
   geom_hline(yintercept=0, linetype='dashed') +
   labs(y='Density', x = 'Return intensity (dB)') +
   ggtitle(expression(Delta~density[postburn-preburn])) +
-  theme(legend.position = 'none') 
+  theme(legend.position = 'bottom') 
 
-fig.combinedHistograms = ggpubr::ggarrange(a,b,c, nrow=1, labels=LETTERS)
+fig.combinedHistograms = ggpubr::ggarrange(a,b,c, nrow=1, labels=LETTERS, common.legend = TRUE, legend='bottom')
 fig.combinedHistograms
-ggsave('figs/combinedHistograms.jpg', width=8, units='in', height=3, dpi=600)
-ggsave('figs/combinedHistograms.pdf', width=8, units='in', height=3, dpi=600)
+ggsave('figs/combinedHistograms.jpg', width=8, units='in', height=3.5, dpi=600)
+ggsave('figs/combinedHistograms.pdf', width=8, units='in', height=3.5, dpi=600)
 
 
 
 mod_df = data.frame(mod = c('RF_scorch_int', 'RF_scorch_delta', 'lm_mod_int', 'lm_mod_delt'),
                     response = c('Intensity', 'Delta intensity', 'Intensity', 'Delta intensity'),
-                    model = c('Random forest', 'Random forest', 'Linear model', 'Linear model'))
-
-
-
+                    model = c('Random forests', 'Random forests', 'Linear model', 'Linear model'))
 assessment = model_predictions
 assessment$dbh_cls = cut(assessment$dbh, breaks=seq(0,60,10))
-
+if(any(assessment$predicted >1)) assessment$predicted = assessment$predicted/100
+if(any(assessment$observed >1)) assessment$observed = assessment$observed/100
 fig.sizeAssess = ggplot(assessment %>% filter(model=='Random forests'), aes(x=observed, y=predicted)) +
   geom_point(alpha=0.6, size=1) + 
   facet_grid(rows=vars(model, response), cols=vars(dbh_cls)) +
@@ -362,15 +562,14 @@ fig.sizeAssess = ggplot(assessment %>% filter(model=='Random forests'), aes(x=ob
   coord_fixed() + 
   geom_abline(slope=1, intercept=0, linetype='dashed') +
   theme_bw() + 
-  scale_x_continuous(breaks=c(0,0.5,1),limits=0:1) +
-  scale_y_continuous(breaks=c(0,0.5,1), limits=0:1) +
+  scale_x_continuous(breaks=c(0,.50,1),limits=c(0,1)) +
+  scale_y_continuous(breaks=c(0,.50,1), limits=c(0,1)) +
   #geom_text(data = mod.assessment, aes(x = 0, y = 102, label = r2.lab), parse=TRUE, hjust=0, size=2.5) + 
   #geom_text(data = mod.assessment, aes(x = 0, y = 92, label = rmse.lab), parse=TRUE, hjust=0, size = 2.5) +
   labs(y = expression(Scorch[predicted]), x = expression(Scorch[observed]))
 fig.sizeAssess
 ggsave('figs/sizeAssess.jpg', width=8, height=3, dpi=600)
 ggsave('figs/sizeAssess.pdf', width=8, height=3, dpi=600)
-
 
 mod.assessment = assessment %>% group_by(model, response, dbh_cls) %>%
   summarize(mean_diff = mean(predicted-observed), 
